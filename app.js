@@ -5,7 +5,6 @@ var logger = require("morgan");
 var mongoose = require('mongoose');
 var sassMiddleware = require('node-sass-middleware');
 
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
