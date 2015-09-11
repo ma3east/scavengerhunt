@@ -8,7 +8,7 @@ function Task ($resource) {
 
  var TaskResource = $resource(url + ':id',
     {id: '@_id'},
-    { 'update': { method: 'PUT' }
+    { 'completed' : { method: 'POST', url: url + 'completed' }
  });
 
  return TaskResource;
