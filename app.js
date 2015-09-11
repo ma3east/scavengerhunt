@@ -8,7 +8,7 @@ var sassMiddleware = require('node-sass-middleware');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
-var databaseURL = 'mongodb://localhost:27017/scavenger-hunt'
+var databaseURL = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/scavenger-hunt'
 mongoose.connect(databaseURL);
 
 app.set("views", "./public");
