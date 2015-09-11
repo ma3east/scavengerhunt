@@ -1,5 +1,5 @@
 angular.module('scavengerHunt')
-  .controller('tasksController', TasksController);
+  .controller('TasksController', TasksController);
 
 TasksController.$inject = ['Task'];
 function TasksController(Task){

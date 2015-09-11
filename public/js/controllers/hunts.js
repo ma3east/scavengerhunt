@@ -1,14 +1,16 @@
 angular.module('scavengerHunt')
   .controller('HuntsController', HuntsController)
 
-HuntsController.$inject = ['Hunt']
-function HuntsController (Hunt) {
-  
+HuntsController.$inject = ['Hunt', '$state']
+function HuntsController (Hunt, $state) {
+
   var self = this;
+  
   self.all = Hunt.query();
-  self.hunt
   self.showHunt = function (hunt) {
   Hunt.get({ id: hunt._id }, function (response) {
+    self.hunt = response;
+    $state.go('showHunt')
   });
 
 }
