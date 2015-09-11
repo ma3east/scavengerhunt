@@ -3,6 +3,7 @@ header {
   background: #3D6D91;
 
   nav {
+    padding-right: 20px;
     height: 50px;
 
     ul {
@@ -16,10 +17,18 @@ header {
         padding: 0px 5px 0px 5px;
         list-style: none;
         display: inline-block;
+        font-size: 18px;
+        font-weight: 400;
       }
 
       a {
         color: #FFF;
+      }
+
+      a:hover {
+        text-decoration: none;
+        color: #618BAB;
+        transform: color 2s;
       }
     }
   }

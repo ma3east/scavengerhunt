@@ -1,19 +1,33 @@
+main {
+  background: #3D6D91;
+  height: 100vh;
+}
+
+.content {
+ text-align: center;
+ position: absolute;
+ left: 50%;
+ top: 50%;
+ transform: translate(-50%, -50%);
+}
+
 .logo {
   margin: 0 auto;
   margin-top: 30px;
   border-radius: 10px;
-  width: 350px;
-  height: 150px;
+  width: 500px;
+  height: 190px;
 }
 
 h2 {
   font-size: 18px;
   font-weight: 400;
-  color: #FFF;
+  color: #F2F2F2;
+  text-align: center;
 }
 
 button {
-  margin-top: 250px;
+  margin-top: 50px;
   background: #6BB65B;
   border: 0px;
   width: 280px;
@@ -23,6 +37,5 @@ button {
   font-size: 18px;
   font-family: 'Avenir Next';
   font-weight: 600;
-
 }
 
