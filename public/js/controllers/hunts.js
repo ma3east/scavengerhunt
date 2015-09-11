@@ -10,6 +10,10 @@ function HuntsController (Hunt, $state, $stateParams) {
   self.hunt;
   self.newHunt = {};
 
+  if ($stateParams.hunt) {
+    self.hunt = $stateParams.hunt;
+  }
+
   if ($stateParams.id) {
     Hunt.get({ id: $stateParams.id}, function(hunt){
       self.hunt = hunt;
@@ -20,17 +24,18 @@ function HuntsController (Hunt, $state, $stateParams) {
   self.all = Hunt.query();
 
   self.showHunt = function (hunt) {
+    // $state.go('hunts/'+hunt._id, { hunt: hunt });
     $state.go('hunts/'+hunt._id, { hunt: hunt });
   }
 
   self.addTask = function(hunt){
     $state.go('newTask', { hunt: hunt });
-
   }
 
   self.createHunt = function () {
     Hunt.save(self.newHunt, function (response) {
-      self.showHunt(response);
+      // self.showHunt(response);
+      $state.go('showHunt', { hunt: hunt });
     });
   }
 
