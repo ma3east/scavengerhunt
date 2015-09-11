@@ -1,9 +1,11 @@
-var User    = require('../models/user');
+var User     = require('../models/user');
 var jwt      = require('jsonwebtoken');
 var passport = require('passport');
 var secret   = require('../config/config').secret;
+var express  = require('express');
+var router   = express.Router();
 ​
-function signup(req, res, next) {
+router.post('/signup', function(req, res, next) {
   passport.authenticate('local-signup', function(err, user, info) {
     if (err) return res.status(500).send(err);
     if (!user) return res.status(401).send({ error: 'User already exists!' });
@@ -16,9 +18,9 @@ function signup(req, res, next) {
       token: token
     });
   })(req, res, next);
-};
+});
 ​
-function login(req, res, next) {
+router.post('/signin', function(req, res, next) {
   User.findOne({
     codename: req.body.codename
   }, function(err, user) {
@@ -36,9 +38,6 @@ function login(req, res, next) {
       token: token
     });
   });
-};
+});
 ​
-module.exports = {
-  signup: signup,
-  login: login
-}
+module.exports = router
