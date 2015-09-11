@@ -24,4 +24,13 @@ router.post('/', function(req, res){
   });
 });
 
+// DELETE
+router.delete('/:id', function(req, res){
+  var id = req.params.id;
+  Task.remove({_id: id}, function(error){
+    if (error) res.status(404).send({message: 'No task with that ID. Could not delete.'})
+    return res.status(204).send({message: 'Deleted!'});
+  });
+});
+
 module.exports = router
