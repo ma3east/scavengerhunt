@@ -11,8 +11,8 @@ var HuntSchema = new mongoose.Schema({
   password: String,
   location: String,
   price: Number,
-  tasks: { type: mongoose.Schema.ObjectId, ref: 'Task'},
-  participants: { type: mongoose.Schema.ObjectId, ref: 'User'}
+  tasks: [{ type: mongoose.Schema.ObjectId, ref: 'Task'}],
+  participants: [{ type: mongoose.Schema.ObjectId, ref: 'User'}]
 });
 
 var Hunt = mongoose.model('Hunt', HuntSchema);
