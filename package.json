@@ -17,11 +17,12 @@
   },
   "homepage": "https://github.com/junedev/scavengerhunt#readme",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.13.3",
     "ejs": "^2.3.4",
     "express": "^4.13.3",
+    "mongoose": "^4.1.6",
     "morgan": "^1.6.1",
-    "node-sass-middleware": "^0.9.0",
     "mongoose": "^4.1.6"
   },
   "devDependencies": {

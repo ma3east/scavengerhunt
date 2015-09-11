@@ -1,12 +1,12 @@
 var mongoose = require('mongoose');
 
-var taskSchema = new mongoose.Schema({
+var TaskSchema = new mongoose.Schema({
   title: String,
   description: String,
   points: Number
   // type: {type: mongoose.Schema.ObjectId, ref: 'TaskType'}
 })
 
-var Task = mongoose.model('Task', taskSchema);
+var Task = mongoose.model('Task', TaskSchema);
 module.exports = Task;
 
