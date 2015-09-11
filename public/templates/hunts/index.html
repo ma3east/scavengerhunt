@@ -1,18 +1,17 @@
 <!-- List hunts -->
 <!-- Hunt title and image with number of people on the hunt -->
 <div ng-controller="HuntsController as hunts">
-<h1>Hunt Feed</h1>
+  <h1>Hunt Feed</h1>
 
-<ul>
-  <li ng-repeat="hunt in hunts.all" >
-    <div>
-      <h3>{{hunt.name}}</h3>
-      <p>{{hunt.tagline}}</p>
-    </div>
-    <a ng-click="hunts.showHunt(hunt)">Show</a>
-    <li ng-repeat="task in hunt.tasks">
-      {{task.title}}
+  <ul>
+    <li ng-repeat="hunt in hunts.all" >
+      <ul>
+        <li><h3>{{hunt.name}}</h3></li>
+        <li><p>{{hunt.tagline}}</p></li>
+        <li><a href="#/hunts/{{hunt._id}}">Show</a></li>
+      </ul>
     </li>
-  </li>
-</ul>
-  </div>
+  </ul>
+</div>
+
+<!-- hunts.showHunt(hunt) -->

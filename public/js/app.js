@@ -17,22 +17,19 @@ function MainRouter($stateProvider, $urlRouterProvider){
       url: "/"
     })
     .state('showTask', {
-      url: "/tasks/show",
+      url: "/hunts/:hunt_id/tasks/:id",
       templateUrl: "templates/tasks/show.html"
     })
     .state('newTask', {
-      url: "/tasks/new",
-      templateUrl: "templates/tasks/new.html",
-      params: {
-        hunt_id: null
-      }
+      url: "/hunts/:hunt_id/tasks/new",
+      templateUrl: "templates/tasks/new.html"
     })
     .state('newHunt', {
       url: "/hunts/new",
       templateUrl: "templates/hunts/new.html"
     })
     .state('showHunt', {
-      url: "/hunts/show",
+      url: "/hunts/:id",
       templateUrl: "templates/hunts/show.html"
     })
     .state('indexHunt', {

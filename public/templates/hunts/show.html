@@ -7,7 +7,5 @@ Price: £ {{hunts.hunt.price}}
 <p>
   {{hunts.hunt.description}}
 </p>
-<button ui-sref="newTask({ hunt_id: hunts.hunt._id})">
-  Add Task
-</button>
+<a href="#/hunts/{{hunts.hunt._id}}/tasks/new">Add Task</a>
 </div>

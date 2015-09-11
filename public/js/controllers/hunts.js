@@ -1,22 +1,29 @@
 angular.module('scavengerHunt')
 .controller('HuntsController', HuntsController)
 
-HuntsController.$inject = ['Hunt', '$state']
-function HuntsController (Hunt, $state) {
+HuntsController.$inject = ['Hunt', '$state', '$stateParams']
+function HuntsController (Hunt, $state, $stateParams) {
+
+  console.log($stateParams)
 
   var self = this;
-  self.hunt = {};
+  self.hunt;
   self.newHunt = {};
+
+  if ($stateParams.id) {
+    Hunt.get({ id: $stateParams.id}, function(hunt){
+      self.hunt = hunt;
+    })
+  }
+
   self.all = Hunt.query();
 
   self.showHunt = function (hunt) {
-    console.log(hunt);
-    Hunt.get({ id: hunt._id }, function (response) {
-      // console.log(response);
-     
-      $state.go('showHunt');
-      self.hunt = response;
-    });
+    $state.go('hunts/'+hunt._id, { hunt: hunt });
+  }
+
+  self.addTask = function(hunt){
+    $state.go('newTask', { hunt: hunt });
   }
 
   self.createHunt = function () {
@@ -28,6 +35,6 @@ function HuntsController (Hunt, $state) {
   // Hunt.delete(hunt._id, function (response) {
   //   console.log(response)
   // } )
-}
+  }
 
 }
