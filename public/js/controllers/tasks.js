@@ -9,7 +9,8 @@ function TasksController(Task, Hunt, $stateParams){
 
   self.hunt = $stateParams.hunt_id;
   self.task = {}
- 
+  self.all = {}
+  self.task.hunt_id = $stateParams.hunt_id;
   // Might only need id
   if ($stateParams.id) {
     Hunt.get({ id: $stateParams.hunt_id}, function(hunt){
@@ -25,10 +26,12 @@ function TasksController(Task, Hunt, $stateParams){
   };
 
   self.addTask = function() {
-    // Task.save(self.task, function(task) {
-    //   self.tasks.push(task);
-    //   self.task = {}
-    // })
+    self.task.hunt_id = $stateParams.hunt_id;
+    console.log(self.task);
+    Task.save(self.task, function(task) {
+      console.log(task)
+      self.task = {}
+    })
   };
 
   self.deleteTask = function(task){
