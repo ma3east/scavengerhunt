@@ -1,6 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var User = require('../models/user');
+var Hunt = require('../models/hunt');
+var Task = require('../models/task');
+var CompletedTask = require('../models/completedTask');
 
 router.get('/', function(req, res){
   User.find(function(error, users){
@@ -8,6 +11,38 @@ router.get('/', function(req, res){
     return res.status(200).send(users);
   });
 });
+
+// USER CURRENT TASKS
+
+// router.post('/tasks', function(req, res){
+//   Hunt.findById(req.body.hunt_id)
+//   .populate('tasks')
+//   .exec(function(error, hunt){
+//     var result = { completed: [], open: [] };
+//     console.log(hunt);
+//     return res.status(200).send(hunt);
+//   });
+// });
+
+router.post('/tasks', function(req, res){
+  Hunt.findById(req.body.hunt_id)
+    .populate('tasks')
+    .exec(populateCompleted);
+
+    function populateCompleted(error, hunt){
+      console.log(hunt);
+      Hunt.populate(hunt, {
+        path: 'tasks.completedTasks',
+        model: 'CompletedTask'
+      },function(error, hunt){
+        var result = { completed: [], open: [] };
+        console.log(hunt);
+        return res.status(200).send(hunt);
+      });
+    };
+    
+});
+
 
 router.post('/', function(req, res){
   var user = new User(req.body);
