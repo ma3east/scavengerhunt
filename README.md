@@ -1,7 +1,7 @@
 # scavengerhunt
-An app made by WDI15 to create mobile scavenger hunt adventures.
-
+An app made by WDI14 to create mobile scavenger hunt adventures.
 
 Evan Gillogley
 Dami Osinaike
 Franki
+Jac was here.
