@@ -3,13 +3,14 @@
 <h1>Hunt Feed</h1>
 
 <ul>
-  <li ng-repeat="hunt in hunts.all" ng-click="hunts.showHunt(hunt)">
+  <li ng-repeat="hunt in hunts.all" >
     <div>
       <h3>{{hunt.name}}</h3>
       <p>{{hunt.tagline}}</p>
     </div>
-  <!--   <div ng-repeat="task hunt.tasks">
+    <a ng-click="hunts.showHunt(hunt)">Show</a>
+    <li ng-repeat="task in hunt.tasks">
       {{task.title}}
-    </div> -->
+    </li>
   </li>
 </ul>
