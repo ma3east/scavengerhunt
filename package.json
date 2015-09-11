@@ -1,0 +1,25 @@
+{
+  "name": "scavengerhunt",
+  "version": "1.0.0",
+  "description": "An app made by WDI15 to create mobile scavenger hunt adventures.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/junedev/scavengerhunt.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/junedev/scavengerhunt/issues"
+  },
+  "homepage": "https://github.com/junedev/scavengerhunt#readme",
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "ejs": "^2.3.4",
+    "express": "^4.13.3",
+    "morgan": "^1.6.1"
+  }
+}
