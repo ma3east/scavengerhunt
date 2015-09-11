@@ -43,7 +43,9 @@ router.post('/tasks', function(req, res){
           if(completedTask.userId == req.body.user_id){
             result.completed.push(task);
           } else {
-            result.open.push(task);
+            if (result.completed.indexOf(task) == -1){
+              result.open.push(task);
+            }
           }
         });
       });
