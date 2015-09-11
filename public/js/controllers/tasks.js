@@ -28,7 +28,7 @@ function TasksController(Task, CurrentUser){
   };
 
   self.completeTask = function(task){
-    data = { task_id: task._id, completedTask: { task_id: task._id, user_id: '' } } 
+    data = { task_id: task._id, completedTask: { taskId: task._id, userId: '' } } 
     Task.completed(data)
   }
 

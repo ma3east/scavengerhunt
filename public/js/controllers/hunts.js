@@ -15,7 +15,6 @@ function HuntsController (Hunt, $state) {
       self.hunt = response;
       $state.go('showHunt')
     });
-
   }
 
   self.createHunt = function () {
@@ -25,13 +24,13 @@ function HuntsController (Hunt, $state) {
   }
 
   self.deleteHunt = function (hunt) {
-  // Hunt.delete(hunt._id, function (response) {
-  //   console.log(response)
-  // } )
+  Hunt.delete(hunt._id, function (response) {
+    console.log(response)
+  })
 }
 
   self.joinHunt = function(hunt) {
-    data = { hunt_id: hunt._id, joinedHunt: { hunt_id: hunt._id, user_id: '' } } 
+    data = { hunt_id: hunt._id, user_id: '' } 
     Hunt.joined(data)
   }
 
