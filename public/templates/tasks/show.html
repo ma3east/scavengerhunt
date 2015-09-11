@@ -1,7 +1,9 @@
 <!-- Show the task -->
 <!-- need a button to click once they have complted the task, this should remove the task from the task index on the hunt show page -->
 
-
 <div ng-controller="TasksController as tasks">
-<h1>TASK</h1>
+<h2>{{tasks.task.title}}</h2>
+<h3>{{tasks.task.description}}</h3>
+<h3>Points: {{tasks.task.points}}</h3>
+<button type="submit">Complete</button>
 </div>

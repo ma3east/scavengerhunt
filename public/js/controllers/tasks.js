@@ -1,8 +1,10 @@
 angular.module('scavengerHunt')
   .controller('TasksController', TasksController);
 
+
 TasksController.$inject = ['Task', 'Hunt', '$stateParams'];
 function TasksController(Task, Hunt, $stateParams){
+
   var self = this;
 
   self.hunt = $stateParams.hunt_id;
@@ -29,10 +31,15 @@ function TasksController(Task, Hunt, $stateParams){
     // })
   };
 
-  this.deleteTask = function(task){
+  self.deleteTask = function(task){
     Task.delete({id: task._id});
     var index = self.tasks.indexOf(task);
     self.tasks.splice(index, 1);
   };
+
+  self.completeTask = function(task){
+    data = { task_id: task._id, completedTask: { taskId: task._id, userId: '' } } 
+    Task.completed(data)
+  }
 
 }

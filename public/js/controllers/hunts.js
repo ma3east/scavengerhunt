@@ -16,6 +16,7 @@ function HuntsController (Hunt, $state, $stateParams) {
     })
   }
 
+
   self.all = Hunt.query();
 
   self.showHunt = function (hunt) {
@@ -24,6 +25,7 @@ function HuntsController (Hunt, $state, $stateParams) {
 
   self.addTask = function(hunt){
     $state.go('newTask', { hunt: hunt });
+
   }
 
   self.createHunt = function () {
@@ -31,10 +33,18 @@ function HuntsController (Hunt, $state, $stateParams) {
       self.showHunt(response);
     });
   }
+
+
   self.deleteHunt = function (hunt) {
-  // Hunt.delete(hunt._id, function (response) {
-  //   console.log(response)
-  // } )
+    Hunt.delete(hunt._id, function (response) {
+      console.log(response)
+    })
+  }
+
+
+  self.joinHunt = function(hunt) {
+    data = { hunt_id: hunt._id, user_id: '' } 
+    Hunt.joined(data)
   }
 
 }
