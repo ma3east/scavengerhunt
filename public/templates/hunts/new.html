@@ -1,26 +1,73 @@
 <div ng-controller="HuntsController as hunts">
 
-<h1>new-hunt</h1>
+  <h1>Create New Hunt</h1>
 
-<form ng-submit="hunts.createHunt()">
-  <label for="name">Name:</label>
-  <input type="text" name="name" ng-model="hunts.newHunt.name">
-  <label for="tagline">Tagline:</label>
-  <input type="text" name="name" ng-model="hunts.newHunt.tagline">
-  <label for="description">Description:</label>
-  <input type="text" name="description" ng-model="hunts.newHunt.description">
-  <label for="location">Location:</label>
-  <input type="text" name="location" ng-model="hunts.newHunt.location">
-  <label for="password">Password:</label>
-  <input type="password" name="password" ng-model="hunts.newHunt.password">
-  <label for="start_time">starts:</label>
-  <input type="text" name="start_time" ng-model="hunts.newHunt.start_time">
-  <label for="end_time">Ends:</label>
-  <input type="text" name="end_time" ng-model="hunts.newHunt.end_time">
-  
+  <form ng-submit="hunts.createHunt()" class="form-horizontal">
+    <fieldset>
 
-  <label for="price">Price:</label>
-  <input type="number" name="price" ng-model="hunts.newHunt.price">
-  <button type="submit">Create Hunt</button>
-</form>
-  </div>
+      <div class="form-group">
+        <label for="name" class="col-lg-2 control-label">Name</label>
+        <div class="col-lg-10">
+          <input type="text" name="name" class="form-control" ng-model="hunts.newHunt.name" placeholder="Name">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="tagline" class="col-lg-2 control-label">Tagline</label>
+        <div class="col-lg-10">
+          <input type="text" name="tagline" class="form-control" ng-model="hunts.newHunt.tagline" placeholder="Tagline">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="image" class="col-lg-2 control-label">Image</label>
+        <div class="col-lg-10">
+          <input type="text" name="image" class="form-control" ng-model="" placeholder="Image">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="description" class="col-lg-2 control-label">Description</label>
+        <div class="col-lg-10">
+          <textarea name="description" class="form-control" rows="2" ng-model="hunts.newHunt.description" placeholder="Description"></textarea>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="location" class="col-lg-2 control-label">Location</label>
+        <div class="col-lg-10">
+          <input type="text" name="location" class="form-control" ng-model="hunts.newHunt.location" placeholder="Location">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="price" class="col-lg-2 control-label">Price</label>
+        <div class="col-lg-10">
+          <input type="number" name="price" class="form-control" ng-model="hunts.newHunt.price" placeholder="Price">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="start_time" class="col-lg-2 control-label">Starts</label>
+        <div class="col-lg-10">
+          <input type="datetime-local" name="start_time" class="form-control" ng-model="hunts.newHunt.start_time">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="end_time" class="col-lg-2 control-label">Ends</label>
+        <div class="col-lg-10">
+          <input type="datetime-local" name="end_time" class="form-control" ng-model="hunts.newHunt.end_time">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password" class="col-lg-2 control-label">Password</label>
+        <div class="col-lg-10">
+          <input type="text" name="password" class="form-control" ng-model="hunts.newHunt.password" placeholder="Password">
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Create Hunt</button>
+    </fieldset>
+  </form>
+</div>
