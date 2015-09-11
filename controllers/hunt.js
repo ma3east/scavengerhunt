@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var Hunt = require('../models/Hunt');
+var Hunt = require('../models/hunt');
 
 // INDEX
 router.get('/', function(req, res){
@@ -13,7 +13,7 @@ router.get('/', function(req, res){
 
 // SHOW
 router.get('/:id', function(req, res){
-  var id = request.params.id;
+  var id = req.params.id;
   Hunt.findById({_id: id}, function(error, hunt){
     if(error) return res.status(404).send({message: 'Could not find hunt'})
     return res.status(200).send(hunt);
@@ -22,7 +22,7 @@ router.get('/:id', function(req, res){
 
 // POST
 router.post('/', function(req, res){
-  var hunt = new Hunt(request.body);
+  var hunt = new Hunt(req.body);
   hunt.save(function(error){
     if(error) return res.status(403).send({message: 'Could not create hunt b/c' + error});
     return res.status(200).send(hunt);
