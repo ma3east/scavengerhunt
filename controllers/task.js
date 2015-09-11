@@ -4,6 +4,15 @@ var router = express.Router();
 var Task = require('../models/task');
 var Hunt = require('../models/hunt');
 
+// INDEX
+router.get('/', function(req, res){
+  var id = req.params.id;
+  Task.find(function(error, tasks){
+    if(error) return res.status(404).send({message: 'Could not find tasks'})
+    return res.status(200).send(tasks);
+  });
+});
+
 // SHOW
 router.get('/:id', function(req, res){
   var id = req.params.id;
