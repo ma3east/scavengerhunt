@@ -1,0 +1,28 @@
+{
+  "name": "scavengerhunt",
+  "version": "0.0.0",
+  "homepage": "https://github.com/alexpchin/scavengerhunt",
+  "authors": [
+    "evanjmg <evanjmg@gmail.com>"
+  ],
+  "description": "A mobile app to create social scavenger hunts.",
+  "keywords": [
+    "scavenger",
+    "hunt"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-auto-validate": "~1.18.16",
+    "angular-jwt": "~0.0.9",
+    "angular-ui-router": "~0.2.15",
+    "angular-resource": "~1.4.5",
+    "bootstrap": "~3.3.5"
+  }
+}

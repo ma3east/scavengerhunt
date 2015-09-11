@@ -1,0 +1,1 @@
+angular.module('scavengerHunt', ['ui.router', 'angular-jwt' ])
