@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var Hunt = require('../models/hunt');
+var Task = require('../models/task');
 
 // INDEX 
 router.get('/', function(req, res){
@@ -36,30 +37,15 @@ router.post('/', function(req, res){
 // DELETE
 router.delete('/:id', function(req, res){
   var id = req.params.id;
-  Hunt.remove({_id: id}, function(error){
-    if (error) res.status(404).send({message: 'No hunt with that ID. Could not delete.'})
-    return res.status(204).send({message: 'Deleted!'})
+  Hunt.findById(id, function(error, hunt){
+    for (var i = 0; i < hunt.tasks.length; i++) {
+      Task.remove({_id: hunt.tasks[i]}, function(){});
+    }
+    Hunt.remove({_id: id}, function(error){
+      if (error) res.status(404).send({message: 'No hunt with that ID. Could not delete.'})
+      return res.status(204).send({message: 'Deleted!'})
+    });
   });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 module.exports = router
