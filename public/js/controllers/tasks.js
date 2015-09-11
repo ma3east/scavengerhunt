@@ -14,7 +14,7 @@ function TasksController(Task){
   };
 
   self.addTask = function() {
-     // self.push(window.localStorage.currentHunt 
+
     Task.save(self.task, function(task) {
       self.tasks.push(task);
       self.task = {}

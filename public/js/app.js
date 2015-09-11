@@ -22,7 +22,10 @@ function MainRouter($stateProvider, $urlRouterProvider){
     })
     .state('newTask', {
       url: "/tasks/new",
-      templateUrl: "templates/tasks/new.html"
+      templateUrl: "templates/tasks/new.html",
+      params: {
+        hunt_id: null
+      }
     })
     .state('newHunt', {
       url: "/hunts/new",
