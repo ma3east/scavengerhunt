@@ -1,3 +1,55 @@
+.logo {
+  margin: 0 auto;
+  margin-top: 30px;
+  border-radius: 10px;
+  width: 350px;
+  height: 150px; }
 
+h2 {
+  font-size: 18px;
+  font-weight: 300;
+  color: #FFF; }
+
+button {
+  margin-top: 250px;
+  background: #6BB65B;
+  border: 0px;
+  width: 280px;
+  height: 40px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 18px;
+  font-family: 'Avenir Next';
+  font-weight: 600; }
+
+header {
+  height: 50px;
+  background: #3D6D91; }
+  header nav {
+    height: 50px; }
+    header nav ul {
+      float: right;
+      height: 50px;
+      padding: 0px;
+      margin: 0px;
+      line-height: 50px; }
+      header nav ul li {
+        padding: 0px 5px 0px 5px;
+        list-style: none;
+        display: inline-block; }
+      header nav ul a {
+        color: #FFF; }
+
+* {
+  font-family: 'Avenir Next';
+  -webkit-font-smoothing: antialiased;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+  text-align: center; }
+
+body {
+  margin: 0 auto;
+  padding: 0;
+  width: 375px;
+  background: #3D6D91; }
 
 /*# sourceMappingURL=style.css.map */

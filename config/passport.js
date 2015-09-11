@@ -10,15 +10,15 @@ module.exports = function(passport) {
   }, function(req, email, password, done) {
     process.nextTick(function() {
       User.findOne({ 'email' : email }, function(err, user) {
-​
+        ​
         if (err) return done(err);
         if (user) return done(null, false);
-​
+        ​
         var newUser       = new User();
         newUser.email     = email;
         newUser.full_name = req.body.full_name;
         newUser.password  = newUser.encrypt(password);
-​
+        ​
         newUser.save(function(err) {
           if (err) return done(err);
           return done(null, newUser);
