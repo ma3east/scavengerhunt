@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var Task     = require('./task');
 var User     = require('./user')
 
-var huntSchema = new mongoose.Schema({
+var HuntSchema = new mongoose.Schema({
   name: String,
   tagline: String,
   description: String,
@@ -15,5 +15,5 @@ var huntSchema = new mongoose.Schema({
   participants: { type: mongoose.Schema.ObjectId, ref: 'User'}
 });
 
-var Hunt = mongoose.model('Hunt', huntSchema);
+var Hunt = mongoose.model('Hunt', HuntSchema);
 module.exports = Hunt;
