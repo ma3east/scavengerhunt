@@ -1,3 +1,15 @@
 <!-- List hunts -->
 <!-- Hunt title and image with number of people on the hunt -->
-<h1>index-hunt</h1>
+<h1>Hunt Feed</h1>
+
+<ul>
+  <li ng-repeat="hunt in hunts.all" ng-click="hunts.showHunt(hunt)">
+    <div>
+      <h3>{{hunt.name}}</h3>
+      <p>{{hunt.tagline}}</p>
+    </div>
+  <!--   <div ng-repeat="task hunt.tasks">
+      {{task.title}}
+    </div> -->
+  </li>
+</ul>
