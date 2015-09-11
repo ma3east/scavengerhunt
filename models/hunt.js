@@ -14,5 +14,5 @@ var huntSchema = new mongoose.Schema({
   // tasks: { type: mongoose.Schema.ObjectId, ref: 'Participant'}
 });
 
-var Hunt = mongoose.model('Hunt', HuntSchema);
+var Hunt = mongoose.model('Hunt', huntSchema);
 module.exports = Hunt;
