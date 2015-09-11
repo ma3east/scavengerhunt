@@ -1,4 +1,13 @@
-<h1>show hunt</h1><!-- Show hunt with all infomation -->
-<!-- image, title -->
-<!-- have user options e.g edit delete -->
-<!-- List tasks -->
+<div ng-controller="HuntsController as hunts">
+<h2>{{hunts.hunt.name}}</h2>
+<h3>{{hunts.hunt.tagline}}</h3>
+<p>
+Price: £ {{hunts.hunt.price}}
+</p>
+<p>
+  {{hunts.hunt.description}}
+</p>
+<button ui-sref="newTask({ hunt_id: hunts.hunt._id})">
+  Add Task
+</button>
+</div>
