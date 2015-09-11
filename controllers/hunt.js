@@ -3,18 +3,22 @@ var router = express.Router();
 
 var Hunt = require('../models/hunt');
 
-// INDEX
+// INDEX 
 router.get('/', function(req, res){
-  Hunt.find(function(error, hunts) {
+  Hunt.find()
+  .populate('tasks')
+  .exec(function(error, hunts){
     if(error)return res.status(404).json({message: 'Could not find any hunts'})
     return res.status(200).send(hunts);
-  });
+  })
 });
 
 // SHOW
-router.get('/:id', function(req, res){
+router.get('/:id', function(req,res){
   var id = req.params.id;
-  Hunt.findById({_id: id}, function(error, hunt){
+  Hunt.findById({_id: id})
+  .populate('tasks')
+  .exec(function(error, hunt){
     if(error) return res.status(404).send({message: 'Could not find hunt'})
     return res.status(200).send(hunt);
   });
