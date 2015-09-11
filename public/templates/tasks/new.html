@@ -1,6 +1,6 @@
-<div ng-controller="TasksController as tasks">
+<!-- <div ng-controller="TasksController as tasks">
   <h1>Create a Task</h1>
-  <form ng-submit="tasks.addTask()">
+  <form ng-submit="tasks.addTask()" class="form-horizontal">
     <label for="title">Title:</label>
     <input type="text" name="title" ng-model="tasks.task.title">
     <label for="description">Description:</label>
@@ -9,5 +9,41 @@
     <input type="text" name="points" ng-model="tasks.task.points">
     <button type="submit">Create Hunt</button>
   </form>
-</div>
+</div> -->
 <!-- changed -->
+
+<div ng-controller="TasksController as tasks">
+  <form ng-submit="tasks.addTask()" class="form-horizontal">
+    <fieldset>
+     <legend>Create New Tasks</legend>
+
+     <div class="form-group">
+       <label for="title" class="col-lg-2 control-label">Title</label>
+       <div class="col-lg-10">
+        <input type="text" name="title" class="form-control" ng-model="tasks.task.title" placeholder="Title">
+      </div>
+    </div>
+
+    <div class="form-group">
+     <label for="description" class="col-lg-2 control-label">Description</label>
+     <div class="col-lg-10">
+       <textarea class="form-control" name="description" rows="2" ng-model="tasks.task.description"></textarea>
+     </div>
+   </div>
+
+   <div class="form-group">
+     <label for="points" class="col-lg-2 control-label">Points</label>
+     <div class="col-lg-10">
+       <input type="text" name="points" class="form-control" ng-model="tasks.task.points" placeholder="Points">
+     </div>
+   </div>
+
+   <div class="form-group">
+    <div class="col-lg-10 col-lg-offset-2">
+      <button type="submit" class="btn btn-primary">Create Hunt Task</button>
+    </div>
+  </div>
+
+</fieldset>
+</form>
+</div>
