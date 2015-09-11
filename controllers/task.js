@@ -3,6 +3,7 @@ var router = express.Router();
 
 var Task = require('../models/task');
 var Hunt = require('../models/hunt');
+var CompletedTask = require('../models/completedTask');
 
 // INDEX
 router.get('/', function(req, res){
@@ -22,13 +23,24 @@ router.get('/:id', function(req, res){
   });
 });
 
-// POST
+// CREATE
 router.post('/', function(req, res){
   var task = new Task(req.body.task);
   task.save(function(error, task){
     Hunt.findByIdAndUpdate({_id: req.body.hunt_id}, {$push: {"tasks": task._id}}, function(error){
       if(error) return res.status(403).send({message: 'Could not create task b/c' + error});
       return res.status(200).send(task);
+    });
+  });
+});
+
+// COMPLETE A TASK
+router.post('/complete', function(req, res){
+  var completedTask = new CompletedTask(req.body.completedTask);
+  completedTask.save(function(error, completedTask){
+    Task.findByIdAndUpdate(req.body.task_id, {$push: {"completedTasks": completedTask._id }}, function(error){
+      if(error) return res.status(403).send({message: 'Could not add completed task.'});
+      return res.status(200).send({message: 'Task completed.'})
     });
   });
 });
