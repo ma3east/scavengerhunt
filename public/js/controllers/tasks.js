@@ -6,7 +6,7 @@ function TasksController(Task){
   var self = this;
 
   self.task = {}
-
+ 
   self.tasks = Task.query();
 
   self.getTask = function(task) {
@@ -14,6 +14,7 @@ function TasksController(Task){
   };
 
   self.addTask = function() {
+     // self.push(window.localStorage.currentHunt 
     Task.save(self.task, function(task) {
       self.tasks.push(task);
       self.task = {}
