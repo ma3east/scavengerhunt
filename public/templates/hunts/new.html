@@ -1,5 +1,7 @@
 <div ng-controller="HuntsController as hunts">
+
 <h1>new-hunt</h1>
+
 <form ng-submit="hunts.createHunt()">
   <label for="name">Name:</label>
   <input type="text" name="name" ng-model="hunts.newHunt.name">
