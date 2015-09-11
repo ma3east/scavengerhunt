@@ -10,8 +10,8 @@ router.get('/', function(req, res){
   .populate('tasks')
   .exec(function(error, hunts){
     if(error)return res.status(404).json({message: 'Could not find any hunts'})
-    return res.status(200).send(hunts);
-  })
+      return res.status(200).send(hunts);
+  });
 });
 
 // SHOW
@@ -21,7 +21,7 @@ router.get('/:id', function(req,res){
   .populate('tasks')
   .exec(function(error, hunt){
     if(error) return res.status(404).send({message: 'Could not find hunt'})
-    return res.status(200).send(hunt);
+      return res.status(200).send(hunt);
   });
 });
 
@@ -34,6 +34,14 @@ router.post('/', function(req, res){
   });
 });
 
+router.post('/join', function(req, res){
+  var id = req.body.user_id
+  Hunt.findByIdAndUpdate({_id: req.body.hunt_id}, {$push: {"participants": req.body.user_id}}, function(error){
+    if(error) return res.status(403).send({message: 'Could not add participant b/c' + error});
+    return res.status(200).send({message: 'Added participant.'});
+  });
+})
+
 // DELETE
 router.delete('/:id', function(req, res){
   var id = req.params.id;
@@ -43,7 +51,7 @@ router.delete('/:id', function(req, res){
     }
     Hunt.remove({_id: id}, function(error){
       if (error) res.status(404).send({message: 'No hunt with that ID. Could not delete.'})
-      return res.status(204).send({message: 'Deleted!'})
+        return res.status(204).send({message: 'Deleted!'})
     });
   });
 });
