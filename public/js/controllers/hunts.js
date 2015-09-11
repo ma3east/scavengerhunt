@@ -5,7 +5,7 @@ HuntsController.$inject = ['Hunt', '$state']
 function HuntsController (Hunt, $state) {
 
   var self = this;
-  
+  self.newHunt
   self.all = Hunt.query();
   self.showHunt = function (hunt) {
   Hunt.get({ id: hunt._id }, function (response) {
@@ -15,9 +15,9 @@ function HuntsController (Hunt, $state) {
 
 }
 
-self.addHunt = function (hunt) {
-  Hunt.save(hunt, function (response) {
-    self.all = response;
+self.createHunt = function () {
+  Hunt.save(self.newHunt, function (response) {
+    self.showHunt(response);
   });
 }
 self.deleteHunt = function (hunt) {
